@@ -1,6 +1,6 @@
 import pygame
 import sys
-#from fase1 import Fase1  # Importa a função Fase1 de outro arquivo
+from FaseY import portas_logicas  # Importa a função Fase1 de outro arquivo
 
 # Inicializa o pygame
 pygame.init()
@@ -60,8 +60,8 @@ while rodando:
             pos_mouse = evento.pos
 
             # Verifica se clicou no botão "Iniciar"
-            #if botao_iniciar.collidepoint(pos_mouse):
-                #Fase1()  # Chama a função Fase1 do arquivo externo
+            if botao_iniciar.collidepoint(pos_mouse):
+                portas_logicas()  # Chama a função Fase1 do arquivo externo
 
             # Verifica se clicou no botão "Créditos"
             if botao_creditos.collidepoint(pos_mouse):
@@ -71,12 +71,12 @@ while rodando:
     tela.blit(fundo, (-100, -100))
 
     # Desenhando o título
-    
+    desenhar_titulo(tela, "STATIC ROOM", (LARGURA // 2, ALTURA - ((ALTURA // 4) * 3)), COR_AZUL)
 
     # Desenhando os botões
     botao_iniciar = desenhar_botao(tela, "Iniciar", (LARGURA // 2, ALTURA // 1.7 - 75), COR_AZUL, COR_PRETO)
     botao_creditos = desenhar_botao(tela, "Créditos", (LARGURA // 2, ALTURA // 1.7 + 75), COR_AZUL, COR_PRETO)
-    titulo = desenhar_titulo(tela, "STATIC ROOM", (LARGURA // 2, ALTURA - ((ALTURA // 4) * 3)), COR_AZUL)
+    
 
     # Atualizando a tela
     pygame.display.flip()
