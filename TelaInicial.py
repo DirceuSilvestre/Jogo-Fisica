@@ -1,6 +1,9 @@
 import pygame
 import sys
-from FaseY import portas_logicas  # Importa a função Fase1 de outro arquivo
+from Creditos import creditos # Importa a função de outro arquivo
+from faseImas import fase_imas
+from faseTransistores import transistors_stage
+from FasePortas import portas_logicas
 
 # Inicializa o pygame
 pygame.init()
@@ -47,7 +50,6 @@ def desenhar_titulo(tela, texto, pos, cor_texto):
     texto_renderizado = fonte.render(texto, True, cor_texto)
     texto_rect = texto_renderizado.get_rect(center=pos)
     tela.blit(texto_renderizado, texto_rect)
-    
 
 # Loop principal
 rodando = True
@@ -61,11 +63,11 @@ while rodando:
 
             # Verifica se clicou no botão "Iniciar"
             if botao_iniciar.collidepoint(pos_mouse):
-                portas_logicas()  # Chama a função Fase1 do arquivo externo
+                fase_imas()  # Chama a função Fase1 do arquivo externo
 
             # Verifica se clicou no botão "Créditos"
             if botao_creditos.collidepoint(pos_mouse):
-                print("Créditos: Jogo desenvolvido por Walter e Dirceu")  # Mensagem de exemplo
+                creditos()  # Mensagem de exemplo
 
     # Desenhando o fundo
     tela.blit(fundo, (-100, -100))
